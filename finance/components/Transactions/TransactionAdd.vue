@@ -2,6 +2,9 @@
   <div
     class="my-4 space-y-4 border-2 border-indigo-200 border-dashed bg-indigo-50 p-5 rounded-xl"
   >
+  <pre>
+      {transactions}
+      </pre>
     <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-5">
       <div>
         <AppFormLabel>Data da transação</AppFormLabel>
@@ -10,7 +13,7 @@
 
       <div>
         <AppFormLabel>Valor</AppFormLabel>
-        <AppFormInput v-model="form.amount" type="number" />
+        <AppFormInput v-model="form.amount" type="number" placeholder="0"/>
       </div>
 
       <div>
@@ -57,10 +60,10 @@ export default {
   data() {
     return {
       form: {
-        date: "",
-        amount: 0,
-        description: "",
-        categoryID: 0
+        date: null,
+        amount: null,
+        description: null,
+        categoryID: null
       },
       categories: []
     };
@@ -73,7 +76,12 @@ export default {
       this.$emit('cancel');
     },
     addTransaction() {
-      this.$store.dispatch('transactions/addTransaction', this.form)
+      this.$store.dispatch('transactions/addTransaction', this.form).then((response) => {
+        this.$emit('after-add', {
+             ...response,
+          category: this.categories.find( o => o.id === this.form.categoryID)
+        })
+      })
     },
   },
 };

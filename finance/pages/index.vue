@@ -10,6 +10,7 @@
 
         <TransactionAdd
           v-if="isAdding"
+          @after-add(afterAdd)
           @cancel="isAdding = false"
         />
 
@@ -175,7 +176,7 @@
             </div>
 
             <div
-              v-for="(group, index) in transactionGroup"
+              v-for="(group, index) in transactionsGroup"
               :key="index"
               class="mb-1"
             >
@@ -278,14 +279,17 @@ export default {
 	},
 
 	computed: {
-		transactionGroup() {
+		transactionsGroup() {
 			return groupBy(orderBy(this.transactions, 'date', 'desc'), 'date');
 		}
 	},
 	methods: {
 		formateDate(date) {
 			return this.$dayjs(date).format('DD/MM/YYYY');
-		}
+		},
+    afterAdd(transaction){
+      this.transactions.push(transaction)
+    }
 	}
 };
 </script>
