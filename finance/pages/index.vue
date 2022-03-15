@@ -8,11 +8,7 @@
           <AppButton @click="isAdding = !isAdding"> Nova transação </AppButton>
         </div>
 
-        <TransactionAdd
-          v-if="isAdding"
-          @after-add="afterAdd"
-          @cancel="isAdding = false"
-        />
+        <TransactionAdd v-if="isAdding" @cancel="isAdding = false" />
 
         <div class="mt-6 pb-6 flex items-center space-x-4 border-b border-gray-300">
           <div>
@@ -39,7 +35,9 @@
                     <div class="flex items-center space-x-5">
                       <div>
                         <div>
-                          <div class="inline-flex items-center px-2.5 py-0.5 rounded-full text-sm font-medium bg-indigo-100 text-indigo-800">
+                          <div
+                            class="inline-flex items-center px-2.5 py-0.5 rounded-full text-sm font-medium bg-indigo-100 text-indigo-800"
+                          >
                             Software
                           </div>
                         </div>
@@ -63,9 +61,9 @@
                             stroke-width="2"
                             d="M12 6v6m0 0v6m0-6h6m-6 0H6"
                           ></path>
-                            </svg>
+                        </svg>
 
-                            <div class="font-bold">R$ 43,02</div>
+                        <div class="font-bold">R$ 43,02</div>
                       </div>
 
                       <button>
@@ -82,7 +80,7 @@
                             stroke-width="2"
                             d="M19 9l-7 7-7-7"
                           ></path>
-                            </svg>
+                        </svg>
                       </button>
                     </div>
                   </div>
@@ -106,17 +104,16 @@
 
                       <div>
                         <AppFormLabel>Categoria</AppFormLabel>
-                        <AppFormSelect :options="[{ name: 'Licença de softwares', id: 1 }]" />
+                        <AppFormSelect
+                          :options="[{ name: 'Licença de softwares', id: 1 }]"
+                        />
                       </div>
                     </div>
 
                     <div class="space-x-4 flex items-center justify-end">
-                      <a
-                        href=""
-                        class="inline-flex text-gray-700 text-sm"
-                      > Cancelar </a>
+                      <a href="" class="inline-flex text-gray-700 text-sm"> Cancelar </a>
 
-                        <AppButton> Editar </AppButton>
+                      <AppButton> Editar </AppButton>
                     </div>
                   </div>
                 </div>
@@ -125,7 +122,9 @@
                   <div class="flex items-center space-x-5">
                     <div>
                       <div>
-                        <div class="inline-flex items-center px-2.5 py-0.5 rounded-full text-sm font-medium bg-indigo-100 text-indigo-800">
+                        <div
+                          class="inline-flex items-center px-2.5 py-0.5 rounded-full text-sm font-medium bg-indigo-100 text-indigo-800"
+                        >
                           Software
                         </div>
                       </div>
@@ -149,9 +148,9 @@
                           stroke-width="2"
                           d="M20 12H4"
                         ></path>
-                          </svg>
+                      </svg>
 
-                          <div class="font-bold">R$ 43,02</div>
+                      <div class="font-bold">R$ 43,02</div>
                     </div>
 
                     <button>
@@ -168,7 +167,7 @@
                           stroke-width="2"
                           d="M19 9l-7 7-7-7"
                         ></path>
-                          </svg>
+                      </svg>
                     </button>
                   </div>
                 </div>
@@ -178,25 +177,26 @@
             <div
               v-for="(group, index) in transactionGroup"
               :key="index"
-              class="mb-1"
-            >
-              <div class="font-bold text-sm">{{ formateDate(index) }}</div>
+              class="mb-1">
+                <div class="font-bold text-sm">{{ formateDate(index) }}</div>
 
               <div class="space-y-3">
                 <div
                   v-for="transaction in group"
                   :key="transaction.id"
-                  class="flex items-center px-5 py-6 bg-white rounded-lg shadow"
-                >
+                  class="flex items-center px-5 py-6 bg-white rounded-lg shadow">
+
                   <div class="flex items-center space-x-5">
                     <div>
                       <div>
-                        <div class="inline-flex items-center px-2.5 py-0.5 rounded-full text-sm font-medium bg-indigo-100 text-indigo-800">
+                        <div
+                          class="inline-flex items-center px-2.5 py-0.5 rounded-full text-sm font-medium bg-indigo-100 text-indigo-800"
+                        >
                           {{ transaction.category.name }}
                         </div>
                       </div>
 
-                      <div class="mt-1.5">{{ transaction.description }}</div>
+                      <div class="mt-1.5">{{transaction.description}}</div>
                     </div>
                   </div>
 
@@ -215,9 +215,9 @@
                           stroke-width="2"
                           d="M12 6v6m0 0v6m0-6h6m-6 0H6"
                         ></path>
-                          </svg>
+                      </svg>
 
-                          <div class="font-bold">{{ transaction.amount }}</div>
+                      <div class="font-bold">{{ transaction.amount }}</div>
                     </div>
 
                     <button>
@@ -234,59 +234,59 @@
                           stroke-width="2"
                           d="M19 9l-7 7-7-7"
                         ></path>
-                          </svg>
+                      </svg>
                     </button>
                   </div>
+                </div>
               </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  </div>
-  </div>
 </template>
 
 <script>
-import { groupBy, orderBy } from 'lodash';
-import AppButton from '~/components/Ui/AppButton';
-import AppFormInput from '~/components/Ui/AppFormInput';
-import AppFormLabel from '~/components/Ui/AppFormLabel';
-import AppFormSelect from '~/components/Ui/AppFormSelect';
-import TransactionAdd from '~/components/Transactions/TransactionAdd';
+import { groupBy, orderBy } from "lodash";
+import AppButton from "~/components/Ui/AppButton";
+import AppFormInput from "~/components/Ui/AppFormInput";
+import AppFormLabel from "~/components/Ui/AppFormLabel";
+import AppFormSelect from "~/components/Ui/AppFormSelect";
+import TransactionAdd from "~/components/Transactions/TransactionAdd";
 
 export default {
-	name: 'IndexPage',
+  name: "IndexPage",
 
-	components: {
-		AppButton,
-		AppFormInput,
-		AppFormLabel,
-		AppFormSelect,
-		TransactionAdd
-	},
+  components: {
+    AppButton,
+    AppFormInput,
+    AppFormLabel,
+    AppFormSelect,
+    TransactionAdd,
+  },
 
-	async asyncData({ store }) {
-		return {
-			transactions: await store.dispatch('transactions/getTransactions')
-		};
-	},
+  async asyncData({ store }) {
+    return {
+      transactions: await store.dispatch("transactions/getTransactions"),
+    };
+  },
 
-	data() {
-		return {
-			isAdding: false
-		};
-	},
+  data() {
+    return {
+      isAdding: false,
+    };
+  },
 
-	computed: {
-		transactionGroup() {
-			return groupBy(orderBy(this.transactions, 'date', 'desc'), 'date');
-		}
-	},
-	methods: {
-		formateDate(date) {
-			return this.$dayjs(date).format('DD/MM/YYYY');
-		}
-	}
+  computed: {
+    transactionGroup() {
+      return groupBy(orderBy(this.transactions, 'date', 'desc'), 'date');
+    },
+  },
+  methods: {
+    formateDate(date){
+      return this.$dayjs(date).format('DD/MM/YYYY');
+    }
+  }
 };
 </script>

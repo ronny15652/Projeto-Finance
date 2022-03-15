@@ -73,7 +73,9 @@ export default {
       this.$emit('cancel');
     },
     addTransaction() {
-      this.$store.dispatch('transactions/addTransaction', this.form)
+      this.$store.dispatch('transactions/addTransaction', this.form).then((response) => {
+        return this.form = ''
+      })
     },
   },
 };
