@@ -45,7 +45,7 @@ import AppFormLabel from "~/components/Ui/AppFormLabel";
 import AppFormSelect from "~/components/Ui/AppFormSelect";
 
 export default {
-  name: "TransactionAdd",
+  name: 'TransactionAdd',
 
   components: {
     AppButton,
@@ -73,9 +73,7 @@ export default {
       this.$emit('cancel');
     },
     addTransaction() {
-      this.$store.dispatch('transactions/addTransaction', this.form).then((response) => {
-        return this.form = ''
-      })
+      this.$store.dispatch('transactions/addTransaction', this.form)
     },
   },
 };
