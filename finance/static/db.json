@@ -55,6 +55,34 @@
       "amount": 100,
       "date": "2022-01-15",
       "categoryId": 5
+    },
+    {
+      "description": "Esfirras",
+      "amount": 34,
+      "date": "2022-01-15",
+      "categoryId": 4,
+      "id": 9
+    },
+    {
+      "description": "Água e Luz",
+      "amount": 160,
+      "date": "2022-03-15",
+      "categoryId": 6,
+      "id": 10
+    },
+    {
+      "description": "GTA V",
+      "amount": 200,
+      "date": "2022-03-16",
+      "categoryId": 1,
+      "id": 11
+    },
+    {
+      "description": "ffff",
+      "amount": 45455,
+      "date": "2022-03-10",
+      "categoryId": 4,
+      "id": 12
     }
   ],
   "categories": [
@@ -77,6 +105,10 @@
     {
       "id": 5,
       "name": "Investimentos"
+    },
+    {
+      "name": "Contas Básicas",
+      "id": 6
     }
   ]
 }
