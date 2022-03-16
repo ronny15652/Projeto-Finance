@@ -10,7 +10,7 @@
 
         <TransactionAdd
           v-if="isAdding"
-          @after-add(afterAdd)
+          @after-add="afterAdd"
           @cancel="isAdding = false"
         />
 
@@ -279,7 +279,7 @@ export default {
 	},
 
 	computed: {
-		transactionsGroup() {
+	  transactionsGroup() {
 			return groupBy(orderBy(this.transactions, 'date', 'desc'), 'date');
 		}
 	},
@@ -288,7 +288,7 @@ export default {
 			return this.$dayjs(date).format('DD/MM/YYYY');
 		},
     afterAdd(transaction){
-      this.transactions.push(transaction)
+      return this.transactions.push(transaction);
     }
 	}
 };

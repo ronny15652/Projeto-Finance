@@ -78,11 +78,39 @@
       "id": 11
     },
     {
-      "description": "ffff",
-      "amount": 45455,
-      "date": "2022-03-10",
+      "description": "Pizza",
+      "amount": 18,
+      "date": "2022-03-15",
       "categoryId": 4,
       "id": 12
+    },
+    {
+      "description": "Refrigerante, Açucar e Ouro Branco",
+      "amount": 13,
+      "date": "2022-03-16",
+      "categoryId": 4,
+      "id": 13
+    },
+    {
+      "description": "Gasolina",
+      "amount": 10,
+      "date": "2022-03-16",
+      "categoryId": 6,
+      "id": 14
+    },
+    {
+      "description": "Coca Cola",
+      "amount": 6,
+      "date": "2022-03-16",
+      "categoryId": 4,
+      "id": 15
+    },
+    {
+      "description": "Agua e luz",
+      "amount": 110,
+      "date": "2022-03-16",
+      "categoryId": 6,
+      "id": 16
     }
   ],
   "categories": [
