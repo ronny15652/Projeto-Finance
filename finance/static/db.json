@@ -57,59 +57,59 @@
       "categoryId": 5
     },
     {
-      "description": "Esfirras",
-      "amount": 34,
-      "date": "2022-01-15",
-      "categoryId": 4,
+      "description": "Gasolina",
+      "amount": 24,
+      "date": "2022-03-16",
+      "categoryId": "3",
       "id": 9
     },
     {
-      "description": "Água e Luz",
-      "amount": 160,
-      "date": "2022-03-15",
-      "categoryId": 6,
+      "description": "Coca Cola",
+      "amount": 7,
+      "date": "2022-03-16",
+      "categoryId": "4",
       "id": 10
     },
     {
-      "description": "GTA V",
-      "amount": 200,
+      "description": "Doce",
+      "amount": 2,
       "date": "2022-03-16",
-      "categoryId": 1,
+      "categoryId": "4",
       "id": 11
     },
     {
-      "description": "Pizza",
-      "amount": 18,
-      "date": "2022-03-15",
-      "categoryId": 4,
+      "description": "Cartão",
+      "amount": 453,
+      "date": "2022-03-17",
+      "categoryId": "2",
       "id": 12
     },
     {
-      "description": "Refrigerante, Açucar e Ouro Branco",
-      "amount": 13,
-      "date": "2022-03-16",
-      "categoryId": 4,
+      "description": "Churrasco",
+      "amount": 118,
+      "date": "2022-03-17",
+      "categoryId": "4",
       "id": 13
     },
     {
-      "description": "Gasolina",
-      "amount": 10,
-      "date": "2022-03-16",
-      "categoryId": 6,
+      "description": "Lanche",
+      "amount": 8,
+      "date": "2022-03-17",
+      "categoryId": "4",
       "id": 14
     },
     {
-      "description": "Coca Cola",
-      "amount": 6,
-      "date": "2022-03-16",
-      "categoryId": 4,
+      "description": "Esfirra",
+      "amount": 5,
+      "date": "2022-03-17",
+      "categoryId": "4",
       "id": 15
     },
     {
-      "description": "Agua e luz",
-      "amount": 110,
-      "date": "2022-03-16",
-      "categoryId": 6,
+      "description": "Notebook",
+      "amount": 4678,
+      "date": "2022-03-17",
+      "categoryId": "1",
       "id": 16
     }
   ],
@@ -133,10 +133,6 @@
     {
       "id": 5,
       "name": "Investimentos"
-    },
-    {
-      "name": "Contas Básicas",
-      "id": 6
     }
   ]
 }

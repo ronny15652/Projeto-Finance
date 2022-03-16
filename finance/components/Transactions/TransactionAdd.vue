@@ -26,7 +26,7 @@
       <div>
         <AppFormLabel>Categoria</AppFormLabel>
         <AppFormSelect
-          v-model.number="form.categoryId"
+          v-model="form.categoryId"
           :options="categories"
         />
       </div>
@@ -79,8 +79,11 @@ export default {
 			this.$emit('cancel');
 		},
 		addTransaction() {
-			this.$store.dispatch('transactions/addTransaction', this.form).then(response => {
-				this.$emit('after-add', response);
+			this.$store.dispatch('transactions/addTransaction', this.form).then((response) => {
+				this.$emit('after-add', {
+          ...response,
+          category: this.categories.find(o => o.id == this.form.categoryId )
+        });
 			});
 		}
 	}

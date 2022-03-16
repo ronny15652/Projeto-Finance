@@ -288,7 +288,7 @@ export default {
 			return this.$dayjs(date).format('DD/MM/YYYY');
 		},
     afterAdd(transaction){
-      return this.transactions.push(transaction);
+      this.transactions.push(transaction);
     }
 	}
 };
