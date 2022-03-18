@@ -14,59 +14,45 @@
           @cancel="isAdding = false"
         />
 
-        <div class="mt-6 pb-6 flex items-center space-x-4 border-b border-gray-300">
-          <div>
-            <AppFormLabel>Descrição</AppFormLabel>
-            <AppFormInput />
+        <TransactionFilter
+        @filter="onFilter"/>
+
+        <div
+          v-for="(group, index) in transactionsGroup"
+          :key="index"
+          class="mb-1"
+        >
+          <div class="font-bold text-sm">{{ formateDate(index) }}</div>
+
+          <div class="space-y-3">
+            <Transaction
+              v-for="transaction in group"
+              :key="transaction.id"
+              :transaction="transaction"
+              @update="onUpdate"
+            />
           </div>
-
-          <div>
-            <AppFormLabel>Categoria</AppFormLabel>
-            <AppFormSelect :options="[{ name: 'Licença de softwares', id: 1 }]" />
-          </div>
-        </div>
-
-
-            <div
-              v-for="(group, index) in transactionsGroup"
-              :key="index"
-              class="mb-1"
-            >
-              <div class="font-bold text-sm">{{ formateDate(index) }}</div>
-
-              <div class="space-y-3">
-                <Transaction
-                v-for="transaction in group"
-                  :key="transaction.id"
-                  :transaction="transaction"
-                  @update="onUpdate"
-                  />
-              </div>
-          </div>
-        </div>
       </div>
     </div>
+  </div>
+  </div>
 </template>
 
 <script>
 import { groupBy, orderBy } from 'lodash';
-import AppButton from '~/components/Ui/AppButton';
-import AppFormInput from '~/components/Ui/AppFormInput';
-import AppFormLabel from '~/components/Ui/AppFormLabel';
-import AppFormSelect from '~/components/Ui/AppFormSelect';
 import TransactionAdd from '~/components/Transactions/TransactionAdd';
-import Transaction from '~/components/Transactions/Transaction'
+import Transaction from '~/components/Transactions/Transaction';
+import TransactionFilter from '~/components/Transactions/TransactionFilter';
+import AppButton from '~/components/Ui/AppButton';
 
 export default {
 	name: 'IndexPage',
 
 	components: {
 		AppButton,
-		AppFormInput,
-		AppFormLabel,
-		AppFormSelect,
 		TransactionAdd,
-    Transaction
+		Transaction,
+		TransactionFilter
 	},
 
 	async asyncData({ store }) {
@@ -82,7 +68,7 @@ export default {
 	},
 
 	computed: {
-	  transactionsGroup() {
+		transactionsGroup() {
 			return groupBy(orderBy(this.transactions, 'date', 'desc'), 'date');
 		}
 	},
@@ -90,12 +76,20 @@ export default {
 		formateDate(date) {
 			return this.$dayjs(date).format('DD/MM/YYYY');
 		},
-    afterAdd(transaction){
-      this.transactions.push(transaction);
-    },
-    onUpdate(transaction){
-      const idx = this.transactions.findIndex(o => o.id === transaction.id);
-      this.transactions.splice(idx, 1, transaction)
+		afterAdd(transaction) {
+			this.transactions.push(transaction);
+		},
+		onUpdate(transaction) {
+			const idx = this.transactions.findIndex(o => o.id === transaction.id);
+			this.transactions.splice(idx, 1, transaction);
+		},
+
+    onFilter(filter) {
+     this.$store.dispatch('transactions/getTransactions', filter)
+     .then((response) => {
+       this.transactions = response
+     })
+
     }
 	}
 };
