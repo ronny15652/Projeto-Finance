@@ -111,6 +111,20 @@
       "date": "2022-03-25",
       "categoryId": 1,
       "id": 16
+    },
+    {
+      "description": "Salário",
+      "amount": -800,
+      "date": "2022-03-29",
+      "categoryId": "2",
+      "id": 17
+    },
+    {
+      "description": "Salário",
+      "amount": -1,
+      "date": "2022-03-29",
+      "categoryId": "2",
+      "id": 18
     }
   ],
   "categories": [

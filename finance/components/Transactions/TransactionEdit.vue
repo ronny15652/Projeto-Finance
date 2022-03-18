@@ -91,11 +91,13 @@ export default {
 						...response,
 						category: this.categories.find(o => o.id == this.localTransaction.categoryId),
 					});
+          this.onCancel()
 				});
-		}
-	},
-	onCancel() {
+		},
+    onCancel() {
 		this.$emit('cancel');
 	},
+	},
+
 };
 </script>
