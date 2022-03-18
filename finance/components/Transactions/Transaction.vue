@@ -1,12 +1,10 @@
 <template>
-  <div>
-    <div class="flex items-center px-5 py-6 bg-white rounded-lg shadow">
+  <div class="px-5 py-6 bg-white rounded-lg shadow">
+    <div class="flex items-center">
       <div class="flex items-center space-x-5">
         <div>
           <div>
-            <div
-              class="inline-flex items-center px-2.5 py-0.5 rounded-full text-sm font-medium bg-indigo-100 text-indigo-800"
-            >
+            <div class="inline-flex items-center px-2.5 py-0.5 rounded-full text-sm font-medium bg-indigo-100 text-indigo-800">
               {{ transaction.category.name }}
             </div>
           </div>
@@ -30,12 +28,12 @@
               stroke-width="2"
               d="M12 6v6m0 0v6m0-6h6m-6 0H6"
             ></path>
-          </svg>
+              </svg>
 
-          <div class="font-bold">{{ transaction.amount }}</div>
+              <div class="font-bold">{{ transaction.amount }}</div>
         </div>
 
-        <button>
+        <button @click="isUpdating = !isUpdating">
           <svg
             class="w-4 h-4"
             fill="none"
@@ -49,21 +47,41 @@
               stroke-width="2"
               d="M19 9l-7 7-7-7"
             ></path>
-          </svg>
+              </svg>
         </button>
       </div>
     </div>
+      <TransactionEdit
+      :transaction="transaction"
+      v-if="isUpdating"
+      @cancel="isUpdating = false"
+      @update="onUpdate"
+      @isupdate="isUpdating = false"/>
   </div>
 </template>
 
 <script>
+import TransactionEdit from '~/components/Transactions/TransactionEdit'
 export default {
-  name: "Transaction",
+	name: 'Transaction',
+  components: {
+    TransactionEdit
+  },
+	props: {
+		transaction: {
+			type: Object,
+			default: () => ({})
+		}
+	},
 
-  props: {
-    transaction: {
-      type: Object,
-      default: () => ({}),
+  data() {
+    return {
+      isUpdating: false
+    }
+  },
+  methods: {
+    onUpdate(transaction) {
+      this.$emit('update', transaction)
     },
   },
 };

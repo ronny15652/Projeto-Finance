@@ -79,7 +79,7 @@
     },
     {
       "description": "Cartão",
-      "amount": 453,
+      "amount": "571.34",
       "date": "2022-03-17",
       "categoryId": "2",
       "id": 12
@@ -88,14 +88,14 @@
       "description": "Churrasco",
       "amount": 118,
       "date": "2022-03-17",
-      "categoryId": "4",
+      "categoryId": 4,
       "id": 13
     },
     {
       "description": "Lanche",
-      "amount": 8,
+      "amount": "15",
       "date": "2022-03-17",
-      "categoryId": "4",
+      "categoryId": 4,
       "id": 14
     },
     {
@@ -108,8 +108,8 @@
     {
       "description": "Notebook",
       "amount": 4678,
-      "date": "2022-03-17",
-      "categoryId": "1",
+      "date": "2022-03-25",
+      "categoryId": 1,
       "id": 16
     }
   ],
