@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
-    "start": "nuxt start" ,
+    "start": "nuxt start && npm run backend" ,
     "generate": "nuxt generate",
     "backend": "json-server --watch --port 3005 static/db.json"
   },
