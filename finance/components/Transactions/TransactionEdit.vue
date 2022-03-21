@@ -37,10 +37,12 @@
         class="inline-flex text-gray-700 text-sm"
         @click.stop.prevent="onCancel()"
       > Cancelar </a>
-
-        <AppButton
-          @click="updateTransaction"
-        > Editar </AppButton>
+        <a
+        @click="deleteTransaction"
+          href=""
+          class="inline-flex items-center justify-center border focus:outline-none transition ease-in-out duration-150 text-white bg-red-600 hover:bg-red-800 border-orange-600 hover:border-rede-800 rounded text-sm px-3 py-2"
+        > Excluir </a>
+          <AppButton @click="updateTransaction"> Editar </AppButton>
     </div>
   </div>
 </template>
@@ -89,15 +91,23 @@ export default {
 				.then(response => {
 					this.$emit('update', {
 						...response,
-						category: this.categories.find(o => o.id == this.localTransaction.categoryId),
+						category: this.categories.find(o => o.id == this.localTransaction.categoryId)
 					});
-          this.onCancel()
+					this.onCancel();
 				});
 		},
-    onCancel() {
-		this.$emit('cancel');
-	},
-	},
-
+    deleteTransaction() {
+      this.$store.dispatch('transactions/deleteTransaction', { id: this.transaction.id, data: this.localTransaction})
+      	.then(response => {
+            this.$emit('delete', {
+              ...response,
+              category: this.categories.find(o => o.id == this.localTransaction.categoryId)
+            })
+          });
+      },
+		onCancel() {
+			this.$emit('cancel');
+		}
+	}
 };
 </script>

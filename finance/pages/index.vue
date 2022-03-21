@@ -30,6 +30,7 @@
               :key="transaction.id"
               :transaction="transaction"
               @update="onUpdate"
+              @delete="onDelete"
             />
           </div>
       </div>
@@ -83,6 +84,10 @@ export default {
 			const idx = this.transactions.findIndex(o => o.id === transaction.id);
 			this.transactions.splice(idx, 1, transaction);
 		},
+    onDelete(transaction){
+      const idx = this.transactions.findIndex(o => o.id === transaction.id);
+      this.transactions.splice(idx, 1, transaction);
+    },
 
     onFilter(filter) {
      this.$store.dispatch('transactions/getTransactions', filter)

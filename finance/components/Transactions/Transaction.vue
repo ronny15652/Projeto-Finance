@@ -75,6 +75,7 @@
       v-if="isUpdating"
       @cancel="isUpdating = false"
       @update="onUpdate"
+      @delete="onDelete"
     />
   </div>
 </template>
@@ -101,7 +102,10 @@ export default {
 	methods: {
 		onUpdate(transaction) {
 			this.$emit('update', transaction);
-		}
+		},
+    onDelete(transaction) {
+      this.$emit('delete', transaction);
+    }
 	}
 };
 </script>

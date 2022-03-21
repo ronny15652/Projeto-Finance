@@ -18,6 +18,7 @@
           </div>
 
           <table class="mt-4 min-w-full divide-y divide-gray-200 shadow">
+          <caption></caption>
             <thead class="bg-gray-50">
               <tr>
                 <th
