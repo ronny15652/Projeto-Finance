@@ -70,6 +70,7 @@
         </button>
       </div>
     </div>
+    <PopUp v-if="isPopup = false" />
     <TransactionEdit
       :transaction="transaction"
       v-if="isUpdating"
@@ -85,7 +86,7 @@ import TransactionEdit from '~/components/Transactions/TransactionEdit';
 export default {
 	name: 'Transaction',
 	components: {
-		TransactionEdit
+		TransactionEdit,
 	},
 	props: {
 		transaction: {
@@ -96,16 +97,17 @@ export default {
 
 	data() {
 		return {
-			isUpdating: false
+			isUpdating: false,
 		};
 	},
 	methods: {
+
 		onUpdate(transaction) {
 			this.$emit('update', transaction);
 		},
     onDelete(transaction) {
       this.$emit('delete', transaction);
-    }
+    },
 	}
 };
 </script>

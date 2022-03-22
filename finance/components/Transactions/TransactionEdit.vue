@@ -38,7 +38,7 @@
         @click.stop.prevent="onCancel()"
       > Cancelar </a>
         <a
-        @click="deleteTransaction"
+          @click="deleteTransaction"
           href=""
           class="inline-flex items-center justify-center border focus:outline-none transition ease-in-out duration-150 text-white bg-red-600 hover:bg-red-800 border-orange-600 hover:border-rede-800 rounded text-sm px-3 py-2"
         > Excluir </a>
@@ -96,15 +96,16 @@ export default {
 					this.onCancel();
 				});
 		},
-    deleteTransaction() {
-      this.$store.dispatch('transactions/deleteTransaction', { id: this.transaction.id, data: this.localTransaction})
-      	.then(response => {
-            this.$emit('delete', {
-              ...response,
-              category: this.categories.find(o => o.id == this.localTransaction.categoryId)
-            })
-          });
-      },
+		deleteTransaction() {
+			this.$store
+				.dispatch('transactions/deleteTransaction', { id: this.transaction.id, data: this.localTransaction })
+				.then(response => {
+					this.$emit('delete', {
+						...response,
+						category: this.categories.find(o => o.id == this.localTransaction.categoryId)
+					});
+				});
+		},
 		onCancel() {
 			this.$emit('cancel');
 		}

@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
-    "start": "nuxt start && npm run backend" ,
+    "start": "nuxt start && npm run backend",
     "generate": "nuxt generate",
     "backend": "json-server --watch --port 3005 static/db.json"
   },
@@ -19,6 +19,7 @@
     "nuxt": "^2.15.8",
     "vue": "^2.6.14",
     "vue-server-renderer": "^2.6.14",
+    "vue-sweetalert2": "^5.0.2",
     "vue-template-compiler": "^2.6.14",
     "webpack": "^4.46.0"
   },
