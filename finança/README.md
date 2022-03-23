@@ -1,3 +1,8 @@
+Projeto Finance
+
+Feito Com Vue.js e MetaFramework Nuxt.js com auxilio de algumas Libs como Vuex, axios e etc.
+aplicamos como framework de estilização o Tailwind.css 
+
 # nuxt
 
 ## Build Setup
